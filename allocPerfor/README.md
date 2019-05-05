@@ -122,7 +122,7 @@ using namespace __gnu_cxx;
 2. 空间复杂度的探究：
     1. 本实验仅针对分配器的时间性能进行了测试，并未对空间复杂度进行测试。
     2. 由STL源码可知，所有的分配器的底层调用都是C语言的函数malloc()，但是使用malloc()获取内存有很多浪费。如下图所示，在VC6中，我们申请了大小为size内存(蓝色部分),但是实际分配给你的是下图整块内存，其中灰色部分是debug模式专有的(release模式下没有),红色部分为cookie(用来记录内存块大小和状态，例如00000041的意思是内存大小为Ox40=48字节，而状态为已经分配出去),绿色部分为自动对齐所需(vc分配的内存大小都是16的倍数)，这些“多余”的东西是内存管理所需，但是在容器中，因为容器元素都是一致的，所以这些多余的东西实际上是可以省略的。
-![a663804d1f97997e4920b56d802163e8.tiff](https://github.com/fenneishi/allocator/blob/master/picture/Snip20190314_1.png)
+![a663804d1f97997e4920b56d802163e8.tiff](https://github.com/fenneishi/conPerfor/blob/master/allocPerfor/picture/Snip20190314_1.png)
     3. 但是std::allocator似乎只是简单的调用了malloc，而并没有针对malloc的内存浪费进行有效设计以避免，GNU的__pool_alloc分配器有针对这种浪费做了特殊的设计。如下图，__pool_alloc每次通过malloc向OS申请一大块内存，挂在索引上，然后再把一大块内存切分成小块分配给容器里的每一个元素，这样就可以有效的避免malloc的内存浪费。所以，可以通过具体的性能试验，验证__pool_alloc是否采取了有效的内存机制来防止内存浪费！
-![45a0e7a7fb70842409804ee32081c8f6.tiff](https://github.com/fenneishi/allocator/blob/master/picture/Snip20190314_5.png)
+![45a0e7a7fb70842409804ee32081c8f6.tiff](https://github.com/fenneishi/conPerfor/blob/master/allocPerfor/picture/Snip20190314_5.png)
 3. 欢迎大家，在各种硬件平台上进行复测！

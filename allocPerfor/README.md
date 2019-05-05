@@ -12,7 +12,7 @@
 * bitmap_allocator
 
 “非标准分配器”源文件位置： 
-![源文件位置](https://github.com/fenneishi/allocator/blob/master/picture/%E6%BA%90%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE)
+![源文件位置](https://github.com/fenneishi/conPerfor/blob/master/allocPerfor/picture/%E6%BA%90%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE)
 以上分配器，除了std::allocator意外，存放在ext文件夹下，并归为命名空间__gnu_cxx中，使用这些分配器前需要进行如下操作：
 ```C++
 #ifdef __GNUC__	

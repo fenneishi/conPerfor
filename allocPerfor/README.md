@@ -1,7 +1,7 @@
 [toc]
 # about
 
-![stl](https://github.com/fenneishi/allocator/blob/master/picture/STL.png)
+![stl](https://github.com/fenneishi/conPerfor/blob/master/allocPerfor/picture/STL.png)
 
 分配器的选取对容器效率直观重要，C++标准规定的默认的分配器是std：allocator,但是GNU其实提供了很多分配器供开发者选择,如下：
 * std::allocator（默认分配器）

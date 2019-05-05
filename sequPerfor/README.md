@@ -1,8 +1,8 @@
 # about
 本实验主要探究了各种Sequence Container的插入性能(时间性能)
 # Data
-![analyseT.png](https://github.com/fenneishi/sequPerfor/blob/master/picture/analyseT.png)
-![analyseG.png](https://github.com/fenneishi/sequPerfor/blob/master/picture/analyseG.png)
+![analyseT.png](https://github.com/fenneishi/conPerfor/blob/master/sequPerfor/picture/analyseT.png)
+![analyseG.png](https://github.com/fenneishi/conPerfor/blob/master/sequPerfor/picture/analyseG.png)
 横坐标：插入元素个数(单位：个)
 纵坐标：花费时间(单位:百万分之一秒)
 # analyse
